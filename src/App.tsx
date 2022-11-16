@@ -3,6 +3,8 @@ import './App.css';
 import {NewComponent} from "./components/NewComponent";
 import {TopCars} from "./components/TopCars";
 import './components/TopCars.css'
+import {Button} from "./components/Button";
+import {log} from "util";
 
 const students = [
     {id: 1, name: "James", age: 8},
@@ -25,35 +27,22 @@ const topCars = [
 ]
 
 function App() {
-    /*const myFirstSubscriber = (event: MouseEvent<HTMLButtonElement>) => {
-        console.log("hello, Vasya is here!")
+    const button1Foo = (subscriber: string, age: number) => {
+        console.log("I'm " + subscriber + ". My age: " + age)
     }
-    const petyaIsHere = (event: MouseEvent<HTMLButtonElement>) => {
-        console.log("Petya is here")
+    const button2Foo = (subscriber: string, age: number) => {
+        console.log("I'm " + subscriber + ". My age: " + age)
     }
-    const onClickHandler = (name: string) => {
-        console.log(name)
-    }*/
-    const foo1 = (event: MouseEvent<HTMLButtonElement>) => {
-        console.log('100500')
+    const buttonStupid = (txt: string) => {
+        console.log(txt)
     }
-    const foo2 = (num: number) => {
-        return (
-            console.log(num)
-        )
-    }
-
     return (
         <>
-            {/*<NewComponent students={students} />*/}
-            {/*<TopCars cars={topCars}/>*/}
-            {/*<button onClick={(event) => onClickHandler("Vasya")}>
-                MyYouTubeChannel-1
-            </button>
-            <button onClick={(event : MouseEvent<HTMLButtonElement>) => onClickHandler("Petya")}>Petya is here</button>
-            <button onClick={() => onClickHandler("some info")}>Some info</button>*/}
-            <button onClick={foo1}>1</button>
-            <button onClick={() => foo2(100500)}>2</button>
+            {/*<NewComponent students={students} />
+            <TopCars cars={topCars}/>   */}
+            <Button name={"YouTubeChannel - 1"} callBack={() => button1Foo('Vasya', 21)}/>
+            <Button name={"YouTubeChannel - 2"} callBack={() => button2Foo('Petya', 33)}/>
+            <Button name={"Stupid button"} callBack={() => buttonStupid("I'm stupid button")}/>
         </>
     );
 }
