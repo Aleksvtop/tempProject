@@ -1,10 +1,10 @@
-import React, {MouseEvent, MouseEventHandler} from 'react';
+import React, {MouseEvent, MouseEventHandler, useState} from 'react';
 import './App.css';
 import {NewComponent} from "./components/NewComponent";
 import {TopCars} from "./components/TopCars";
 import './components/TopCars.css'
 import {Button} from "./components/Button";
-import {log} from "util";
+
 
 const students = [
     {id: 1, name: "James", age: 8},
@@ -27,7 +27,7 @@ const topCars = [
 ]
 
 function App() {
-    const button1Foo = (subscriber: string, age: number) => {
+    /*const button1Foo = (subscriber: string, age: number) => {
         console.log("I'm " + subscriber + ". My age: " + age)
     }
     const button2Foo = (subscriber: string, age: number) => {
@@ -35,14 +35,25 @@ function App() {
     }
     const buttonStupid = (txt: string) => {
         console.log(txt)
+    }*/
+    let [a, setA] = useState(1)
+    const onClickHandler = () => {
+        setA(++a);
+        console.log(a)
+    }
+    const onClickHandler1 = () => {
+        setA(a=0)
     }
     return (
         <>
             {/*<NewComponent students={students} />
             <TopCars cars={topCars}/>   */}
-            <Button name={"YouTubeChannel - 1"} callBack={() => button1Foo('Vasya', 21)}/>
+            {/*<Button name={"YouTubeChannel - 1"} callBack={() => button1Foo('Vasya', 21)}/>
             <Button name={"YouTubeChannel - 2"} callBack={() => button2Foo('Petya', 33)}/>
-            <Button name={"Stupid button"} callBack={() => buttonStupid("I'm stupid button")}/>
+            <Button name={"Stupid button"} callBack={() => buttonStupid("I'm stupid button")}/>*/}
+            <h1>{a}</h1>
+            <button onClick={onClickHandler}>Number</button>
+            <button onClick={onClickHandler1}>0</button>
         </>
     );
 }
