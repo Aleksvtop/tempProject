@@ -5,6 +5,8 @@ import {TopCars} from "./components/TopCars";
 import './components/TopCars.css'
 import {Button} from "./components/Button";
 import {FullInput} from "./components/FullInput";
+import {Input} from "./components/Input";
+import {InputButton} from "./components/InputButton";
 /*import {MoneyComponent} from './components/MoneyComponent'*/
 
 const students = [
@@ -39,9 +41,16 @@ function App() {
         let newMessage = {message: title}
         setMessage([newMessage,...message])
     }
+    let [title, setTitle] = useState('')
+    const callBackButtonHandler = () => {
+        addMessage(title)
+        setTitle('')
+    }
     return (
         <div className={'App'}>
-            <FullInput addMessage={addMessage}/>
+            {/*<FullInput addMessage={addMessage}/>*/}
+            <Input title={title} setTitle={setTitle}/>
+            <InputButton name={'+'} callBack={callBackButtonHandler}/>
             {message.map((el,index) => {
                 return (
                     <div key={index}>{el.message}</div>
