@@ -1,5 +1,6 @@
 import React, {Dispatch, SetStateAction} from "react";
-import {FilterType} from "../App";
+
+/*import {FilterType} from "../App";
 
 type MoneyComponentType = {
     currentMoney: Array<MoneyType>
@@ -41,4 +42,4 @@ export const MoneyComponent = (props: MoneyComponentType) => {
         </>
 
     );
-}
+}*/

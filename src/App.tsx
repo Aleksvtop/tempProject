@@ -4,7 +4,8 @@ import {NewComponent} from "./components/NewComponent";
 import {TopCars} from "./components/TopCars";
 import './components/TopCars.css'
 import {Button} from "./components/Button";
-import {MoneyComponent} from './components/MoneyComponent'
+import {FullInput} from "./components/FullInput";
+/*import {MoneyComponent} from './components/MoneyComponent'*/
 
 const students = [
     {id: 1, name: "James", age: 8},
@@ -21,16 +22,35 @@ const students = [
 ]
 
 
-
 const topCars = [
     {manufacturer: 'BMW', model: 'm5cs'},
     {manufacturer: 'Mercedes', model: 'e63s'},
     {manufacturer: 'Audi', model: 'rs6'}
 ]
 
-export type FilterType = 'All' | 'Dollar' | 'Ruble'
+/*export type FilterType = 'All' | 'Dollar' | 'Ruble'*/
 function App() {
-    const [money, setMoney] = useState([
+    let [message, setMessage] = useState([
+        {message: 'message1'},
+        {message: 'message2'},
+        {message: 'message3'}
+        ])
+    const addMessage = (title:string) => {
+        let newMessage = {message: title}
+        setMessage([newMessage,...message])
+    }
+    return (
+        <div className={'App'}>
+            <FullInput addMessage={addMessage}/>
+            {message.map((el,index) => {
+                return (
+                    <div key={index}>{el.message}</div>
+                )
+            })}
+        </div>
+    )
+
+    /*const [money, setMoney] = useState([
         {banknote: 'dollar', nominal: 100, number: 'a1234567890'},
         {banknote: 'dollar', nominal: 50, number: 'z1234567890'},
         {banknote: 'ruble', nominal: 100, number: 'w1234567890'},
@@ -56,8 +76,7 @@ function App() {
         <>
             <MoneyComponent setMoney={setMoney} currentMoney={currentMoney}  onClickFilterHandler={onClickFilterHandler}/>
         </>
-
-    )
+    )*/
     /*const button1Foo = (subscriber: string, age: number) => {
         console.log("I'm " + subscriber + ". My age: " + age)
     }
@@ -89,4 +108,5 @@ function App() {
     );
 }*/
 }
+
 export default App;
